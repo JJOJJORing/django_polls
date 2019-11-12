@@ -6,6 +6,7 @@ from .models import Question, Choice
 # choice라는 선택목록을 question model 안에 넣어서 admin page 에서 보여주기 위해 작성한다.
 class ChoiceInline(admin.TabularInline):
     model = Choice
+    # 선택 목록의 기본 갯수
     extra = 3
 
 
