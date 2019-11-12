@@ -2,7 +2,13 @@ from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Question
 from django.views.generic import ListView, DetailView
-# Create your views here.
+from rest_framework.generics import ListAPIView
+from .serializers import QuestionSerializer
+
+
+class ApiQuestionList(ListAPIView):
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
 
 
 # 제네릭 뷰인 list view 로 바꿈
@@ -27,7 +33,6 @@ class DetailView(DetailView):
 class ResultView(DetailView):
     model = Question
     template_name = 'polls/result.html'
-
 
 
 # def detail_view(request, request_id):
