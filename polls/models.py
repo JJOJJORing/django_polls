@@ -7,6 +7,10 @@ class Question(models.Model):
     # 2019년 11월 12일날 등록 이라는 데이터
     pub_date = models.DateTimeField('등록날짜')
 
+    # question object(1)로 어드민에 나오는 문제를 직접질문한 내용을 볼수 있도록 바꿈
+    def __str__(self):
+        return self.question_text
+
 
 class Choice(models.Model):
     # Question 클래스 에 연결된 데이터가 삭제되면 같이 삭제해준다
